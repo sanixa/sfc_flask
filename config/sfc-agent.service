@@ -1,0 +1,15 @@
+[Unit]
+Description=SFC Agent
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/sfc/sfc-py
+EnvironmentFile=/etc/environment
+ExecStart=/opt/sfc/sfc-py/start_agent.sh 127.0.0.1:8181
+Restart=always
+RestartSec=15s
+
+[Install]
+WantedBy=multi-user.target

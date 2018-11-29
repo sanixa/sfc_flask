@@ -1,0 +1,15 @@
+[Unit]
+Description=SFC
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/sfc_flask
+EnvironmentFile=/etc/environment
+ExecStart=/opt/sfc_flask/server.py
+Restart=always
+RestartSec=15s
+
+[Install]
+WantedBy=multi-user.target
